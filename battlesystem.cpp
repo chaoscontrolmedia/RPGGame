@@ -39,8 +39,11 @@ vector<double> consecutive_attacks(int amount){
 }
 
 //Zōfuku sa reta fukusū no kōgeki
-vector<double> amplified_consecutive_attacks(int amount, double scale_factor){
+vector<double> amplified_consecutive_attacks(int amount, int mp_cost, double scale_factor){
     vector<double> modified_attacks(amount);
+    int mp_per_hit = (mp_cost /amount );
+    cout << "MP Spent:" << mp_cost << "\n";
+    cout << "MP per hit:" << mp_per_hit << "\n";
 
     for(int i = 1; i<=amount; ++i){
         modified_attacks[i] = i;
@@ -51,6 +54,19 @@ vector<double> amplified_consecutive_attacks(int amount, double scale_factor){
 }
 
 
+//discrete math attack ideas
+
+
+//Queue for special attack buildup 
+//Tree for attack selection, attack chain 
+
+//come up with different attacks
+
+
+
+//now need to work on mp manipulation
+
+
 
 
 
@@ -59,6 +75,19 @@ vector<double> amplified_consecutive_attacks(int amount, double scale_factor){
 
 
 //scale_factor = 
+
+    
+        //Functions for finding exponents
+    long long customPow(int base, int exponent) {
+        //1*1, 2*2 3*3...
+        long long result = 1;
+        for (int i = 1; i <= exponent; i++) {
+            result *= base;
+        }
+        cout << base << "^" << exponent << " = ";
+        return result;
+    }
+     
 
 
 
@@ -74,15 +103,16 @@ int main(){
     // mp-= mp_cost;
 
 
-    //scale factor is 10% of the MP cost 
+    //scale factor is 10% of the MP cost. That 10% is added to the attack values.
     double scale_factor = (mp_cost*.1);
 
 
-    cout << "Attacks:\n";
-    auto original = consecutive_attacks(amount);
+    // cout << "Attacks:\n";
+    // auto original = consecutive_attacks(amount);
+
     cout << "\n";
     cout << "Modified:\n";
-    auto amplified = amplified_consecutive_attacks(amount, scale_factor);
+    auto amplified = amplified_consecutive_attacks(amount,mp_cost, scale_factor);
 
 
     // cout <<"Remaining MP: " << mp;
