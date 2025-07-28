@@ -54,6 +54,10 @@ vector<double> amplified_consecutive_attacks(int amount, int mp_cost, double sca
 }
 
 
+
+
+
+
 //discrete math attack ideas
 
 
@@ -77,16 +81,9 @@ vector<double> amplified_consecutive_attacks(int amount, int mp_cost, double sca
 //scale_factor = 
 
     
-        //Functions for finding exponents
-    long long customPow(int base, int exponent) {
-        //1*1, 2*2 3*3...
-        long long result = 1;
-        for (int i = 1; i <= exponent; i++) {
-            result *= base;
-        }
-        cout << base << "^" << exponent << " = ";
-        return result;
-    }
+
+
+
      
 
 
@@ -95,6 +92,8 @@ int main(){
     int amount = 5;
     int mp = 100;
     int mp_cost = 100;
+
+    
    
 
     //cout << "MP: " << mp;
@@ -107,8 +106,8 @@ int main(){
     double scale_factor = (mp_cost*.1);
 
 
-    // cout << "Attacks:\n";
-    // auto original = consecutive_attacks(amount);
+    cout << "Attacks:\n";
+    auto original = consecutive_attacks(amount);
 
     cout << "\n";
     cout << "Modified:\n";
