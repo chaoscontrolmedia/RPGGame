@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "scale_factors.cpp"
 using namespace std;
 
 //A basic game made in 2025, putting all of my skills to the test.
@@ -10,17 +11,26 @@ using namespace std;
 
 //Inheritance vs composition
 
+enum CharacterType{
+
+    GRUNT,
+    KNIGHT,
+    PLAYER,
+
+    };
+
+
 class Character{
     private:
+        vector<Character> characters;
+        ScaleFactors scale;
         string name;
         double health;
-       
-
         int attack;
         int defense;
         int heals;
 
-        std::vector<Character> characters;
+        
 
         public:
         Character()= default;
@@ -38,10 +48,9 @@ class Character{
             defense(defense),
             heals(heals)
             {}
-
             void setName(const string& newName) {name = newName;
 }
-
+         
         void setHealth(double h) { health = h; }
         void setAttack(int a) { attack = a; }
         void setDefense(int d) { defense = d; }
@@ -131,6 +140,17 @@ Might break SRP (Single Responsibility Principle) if the function becomes comple
             return result;
          }
 
+};
+
+Character grunt("Grunt", 1000, 100,100, 3);
+Character knight("Knight", 4000, 100,100, 3);
+Character player("Player", 10000, 100,100, 3);
+
+
+
+
+
+
          /*
          ways to have the instances interact with each other
          
@@ -140,12 +160,6 @@ Might break SRP (Single Responsibility Principle) if the function becomes comple
          4.Observer Pattern/Event 
          5. Strategy Pattern
          */
-
-
-         
-
-};
-
 
 
 
@@ -206,9 +220,9 @@ Might need to make it a friend function to access private members, reducing enca
 Less intuitive if scattered across files.
 
 */
-        void performAttack(Character&attacker, Character&defender){
-            defender.setHealth(defender.getHealth()-attacker.getAttack());
-        }
+        // void performAttack(Character&attacker, Character&defender){
+        //     defender.setHealth(defender.getHealth()-attacker.getAttack());
+        // }
        
 
 //A general function to print out all the party members
@@ -217,11 +231,18 @@ Less intuitive if scattered across files.
 //Load created characters
 //Build/test loop
 int main() {
+    
+    // Character player2;
+
+
+    int choice;
+
+
     bool game_loop = true;
 
     while (game_loop){
-        int choice;
-        cout <<"Some game. \n1.Create character";
+        
+        cout <<"Some game. \n1.Display Data";
         cout << "\n2. Fight";
         cout << "\n3. Exit";
         cin >> choice;
@@ -230,7 +251,16 @@ int main() {
         switch(choice){
             case 1: 
                 {
-                cout << "Create";
+                cout << "Displaying Data:";
+                    displayData(grunt);
+                    cout << "\n";
+                    displayData(knight);
+                    cout << "\n";
+                    displayData(player);
+
+                    Character.displayChars();
+
+                
                 break;
                 }
 

@@ -1,6 +1,7 @@
 
 #include <iostream>
 #include <vector>
+#include "scale_factors.cpp"
 
 using namespace std;
 
@@ -14,44 +15,34 @@ static long long factorial(int n) {
 
 class BattleSystem{
     int HP = 100;
+    int RAM = 1000;
     int normal_attack = 10;
 };
+
+//chained attacks
 
 
 //If the user wants to use consecutive attacks
 //Add MP cost to the attack array '
 //use amplifier to 
 
-void amplifier(double &attack, double scale_factor){
-    attack += scale_factor;
-}
 
-//Separate concerns: Just have 1 array handle the output of the attacks
-//Fukusū no kōgeki
-vector<double> consecutive_attacks(int amount){
-    vector<double> attacks(amount);
-    
-    for(int i = 1; i<=amount; ++i){
-        attacks[i] = i;
-        cout << attacks[i] << " ";
-    }
-    return attacks;
-}
+
 
 //Zōfuku sa reta fukusū no kōgeki
-vector<double> amplified_consecutive_attacks(int amount, int mp_cost, double scale_factor){
-    vector<double> modified_attacks(amount);
-    int mp_per_hit = (mp_cost /amount );
-    cout << "MP Spent:" << mp_cost << "\n";
-    cout << "MP per hit:" << mp_per_hit << "\n";
+// vector<double> amplified_consecutive_attacks(int amount, int mp_cost, double scale_factor){
+//     vector<double> modified_attacks(amount);
+//     int mp_per_hit = (mp_cost /amount );
+//     cout << "MP Spent:" << mp_cost << "\n";
+//     cout << "MP per hit:" << mp_per_hit << "\n";
 
-    for(int i = 1; i<=amount; ++i){
-        modified_attacks[i] = i;
-        amplifier(modified_attacks[i], scale_factor);
-        cout << modified_attacks[i] << " ";
-    }
-    return modified_attacks;
-}
+//     for(int i = 1; i<=amount; ++i){
+//         modified_attacks[i] = i;
+//         amplifier(modified_attacks[i], scale_factor);
+//         cout << modified_attacks[i] << " ";
+//     }
+//     return modified_attacks;
+// }
 
 
 
@@ -103,15 +94,15 @@ int main(){
 
 
     //scale factor is 10% of the MP cost. That 10% is added to the attack values.
-    double scale_factor = (mp_cost*.1);
+    // double scale_factor = (mp_cost*.1);
 
 
-    cout << "Attacks:\n";
-    auto original = consecutive_attacks(amount);
+    // cout << "Attacks:\n";
+    // auto original = consecutive_attacks(amount);
 
-    cout << "\n";
-    cout << "Modified:\n";
-    auto amplified = amplified_consecutive_attacks(amount,mp_cost, scale_factor);
+    // cout << "\n";
+    // cout << "Modified:\n";
+    // auto amplified = amplified_consecutive_attacks(amount,mp_cost, scale_factor);
 
 
     // cout <<"Remaining MP: " << mp;
