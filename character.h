@@ -2,15 +2,22 @@
 #define CHARACTER_H
 
 #include <string>
-#include <vector>
+using std::string;
 
 
+enum CharacterType{
+
+    GRUNT,
+    KNIGHT,
+    PLAYER,
+
+    };
 
 class Character{
     private:
         
     
-        std::string name;
+        string name;
         double health;
         int attack;
         int defense;
@@ -49,46 +56,10 @@ class Character{
         int getDefense() const { return defense; }
         int getHeals() const { return heals; }
 
-
-
-        void createCharacter2() {
-            cout << "Name: ";
-            getline(cin >> ws, name); // Read full line, including spaces
-
-            cout << "Attack: ";
-            string input;
-            getline(cin, input);
-            attack = stoi(input);
-
-            cout << "Defense: ";
-            getline(cin, input);
-            defense = stoi(input);
-
-            cout << "Health: ";
-            getline(cin, input);
-            health = stod(input);
-
-            cout << "Heals: ";
-            getline(cin, input);
-            heals = stoi(input);
-        }
-
-
-        void displayData2(){
-            cout <<"Name: " <<getName()
-            << " | Health: " << getHealth()
-            << " | Attack: " << getAttack()
-            << " | Defense: " << getDefense()
-            << " | Heals: " << getHeals();
-        }
-
-
-         void addToParty(const Character& individual_character){
-            characters.push_back(individual_character);
-         }
-
+        void displayStats() const;
 
 
 
 
 };
+#endif

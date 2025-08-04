@@ -1,8 +1,44 @@
 #include <iostream>
-#include <string>
-#include <vector>
-#include "scale_factors.cpp"
-using namespace std;
+#include "character.h"
+using std::cout;
+using std::endl;
+
+
+void Character::displayStats() const {
+    cout << "Name: " << name
+         << " | Health: " << health
+         << " | Attack: " << attack
+         << " | Defense: " << defense
+         << " | Heals: " << heals << endl;
+}
+
+        //          void displayData2(){
+        //     cout <<"Name: " <<getName()
+        //     << " | Health: " << getHealth()
+        //     << " | Attack: " << getAttack()
+        //     << " | Defense: " << getDefense()
+        //     << " | Heals: " << getHeals();
+        // }
+
+
+
+
+
+
+int main(){
+
+    Character grunt("Grunt", 1000, 100,100, 3);
+Character knight("Knight", 4000, 100,100, 3);
+Character player("Player", 10000, 100,100, 3);
+return 0;
+
+
+}
+
+
+
+
+
 
 //A basic game made in 2025, putting all of my skills to the test.
 
@@ -11,140 +47,96 @@ using namespace std;
 
 //Inheritance vs composition
 
-enum CharacterType{
-
-    GRUNT,
-    KNIGHT,
-    PLAYER,
-
-    };
 
 
-class Character{
-    private:
-        vector<Character> characters;
-        ScaleFactors scale;
-        string name;
-        double health;
-        int attack;
-        int defense;
-        int heals;
+
+// class Character{
+//     private:
+//         vector<Character> characters;
+//         ScaleFactors scale;
+//         string name;
+//         double health;
+//         int attack;
+//         int defense;
+//         int heals;
 
         
 
-        public:
-        Character()= default;
-        Character(
-            string name, 
-            double health, 
-            int attack, 
-            int defense, 
-            int heals
-        ):
+//         public:
+//         Character()= default;
+//         Character(
+//             string name, 
+//             double health, 
+//             int attack, 
+//             int defense, 
+//             int heals
+//         ):
 
-            name(name),
-            health(health),
-            attack(attack),
-            defense(defense),
-            heals(heals)
-            {}
-            void setName(const string& newName) {name = newName;
-}
+//             name(name),
+//             health(health),
+//             attack(attack),
+//             defense(defense),
+//             heals(heals)
+//             {}
+//             void setName(const string& newName) {name = newName;
+// }
          
-        void setHealth(double h) { health = h; }
-        void setAttack(int a) { attack = a; }
-        void setDefense(int d) { defense = d; }
-        void setHeals(int h) { heals = h; }
+//         void setHealth(double h) { health = h; }
+//         void setAttack(int a) { attack = a; }
+//         void setDefense(int d) { defense = d; }
+//         void setHeals(int h) { heals = h; }
 
 
-        string getName() const {return name;}
-        double getHealth() const {return health;}
-        int getAttack() const {return attack;}
-        int getDefense() const { return defense; }
-        int getHeals() const { return heals; }
-
-    //Member function
-
-    /*
-    Pros:
-Easy to read and understand.
-
-Keeps logic encapsulated in the class.
-
-Cons:
-All logic must live inside the attacking class.
-
-Might break SRP (Single Responsibility Principle) if the function becomes complex.
-    */
-        // void attackTarget(Character&target) const{
-        //     target.health-= this->attack;
-        // }
+//         string getName() const {return name;}
+//         double getHealth() const {return health;}
+//         int getAttack() const {return attack;}
+//         int getDefense() const { return defense; }
+//         int getHeals() const { return heals; }
 
 
 
+//         void createCharacter2() {
+//             cout << "Name: ";
+//             getline(cin >> ws, name); // Read full line, including spaces
+
+//             cout << "Attack: ";
+//             string input;
+//             getline(cin, input);
+//             attack = stoi(input);
+
+//             cout << "Defense: ";
+//             getline(cin, input);
+//             defense = stoi(input);
+
+//             cout << "Health: ";
+//             getline(cin, input);
+//             health = stod(input);
+
+//             cout << "Heals: ";
+//             getline(cin, input);
+//             heals = stoi(input);
+//         }
+
+
+//         void displayData2(){
+//             cout <<"Name: " <<getName()
+//             << " | Health: " << getHealth()
+//             << " | Attack: " << getAttack()
+//             << " | Defense: " << getDefense()
+//             << " | Heals: " << getHeals();
+//         }
+
+
+//          void addToParty(const Character& individual_character){
+//             characters.push_back(individual_character);
+//          }
 
 
 
 
 
+// };
 
-
-
-        void createCharacter2() {
-            cout << "Name: ";
-            getline(cin >> ws, name); // Read full line, including spaces
-
-            cout << "Attack: ";
-            string input;
-            getline(cin, input);
-            attack = stoi(input);
-
-            cout << "Defense: ";
-            getline(cin, input);
-            defense = stoi(input);
-
-            cout << "Health: ";
-            getline(cin, input);
-            health = stod(input);
-
-            cout << "Heals: ";
-            getline(cin, input);
-            heals = stoi(input);
-        }
-
-
-        void displayData2(){
-            cout <<"Name: " <<getName()
-            << " | Health: " << getHealth()
-            << " | Attack: " << getAttack()
-            << " | Defense: " << getDefense()
-            << " | Heals: " << getHeals();
-        }
-
-
-         void addToParty(const Character& individual_character){
-            characters.push_back(individual_character);
-         }
-
-
-
-         vector<string> displayChars(){
-            vector<string> result;
-
-            for(const auto& character : characters){
-
-                // Return names as strings
-                result.push_back(character.getName());
-                
-            }
-            return result;
-         }
-
-};
-
-Character grunt("Grunt", 1000, 100,100, 3);
-Character knight("Knight", 4000, 100,100, 3);
-Character player("Player", 10000, 100,100, 3);
 
 
 
@@ -174,38 +166,38 @@ Character player("Player", 10000, 100,100, 3);
 
 
 
-void createCharacter(Character& character) {
-    std::string input, tempName;
+// void createCharacter(Character& character) {
+//     std::string input, tempName;
 
-    cout << "Name: ";
-    getline(std::cin >> std::ws, tempName);
-    character.setName(tempName);
+//     cout << "Name: ";
+//     getline(std::cin >> std::ws, tempName);
+//     character.setName(tempName);
 
-    cout << "Attack: ";
-    getline(std::cin, input);
-    character.setAttack(std::stoi(input));
+//     cout << "Attack: ";
+//     getline(std::cin, input);
+//     character.setAttack(std::stoi(input));
 
-    cout << "Defense: ";
-    getline(cin, input);
-    character.setDefense(std::stoi(input));
+//     cout << "Defense: ";
+//     getline(cin, input);
+//     character.setDefense(std::stoi(input));
 
-    cout << "Health: ";
-    getline(cin, input);
-    character.setHealth(stod(input));
+//     cout << "Health: ";
+//     getline(cin, input);
+//     character.setHealth(stod(input));
 
-    cout << "Heals: ";
-    getline(cin, input);
-    character.setHeals(stoi(input));
-}
+//     cout << "Heals: ";
+//     getline(cin, input);
+//     character.setHeals(stoi(input));
+// }
 
 
-        void displayData(Character& character){
-            cout <<"Name: " <<character.getName() 
-            << " | Health: " <<character.getHealth()
-            << " | Attack: " <<character.getAttack()
-            << " | Defense: " <<character.getDefense()
-            << " | Heals: " <<character.getHeals();
-        }
+//         void displayData(Character& character){
+//             cout <<"Name: " <<character.getName() 
+//             << " | Health: " <<character.getHealth()
+//             << " | Attack: " <<character.getAttack()
+//             << " | Defense: " <<character.getDefense()
+//             << " | Heals: " <<character.getHeals();
+//         }
 
         //Non-Member Function 
 
@@ -230,55 +222,55 @@ Less intuitive if scattered across files.
 
 //Load created characters
 //Build/test loop
-int main() {
+// int main() {
     
-    // Character player2;
+//     // Character player2;
 
 
-    int choice;
+//     int choice;
 
 
-    bool game_loop = true;
+//     bool game_loop = true;
 
-    while (game_loop){
+//     while (game_loop){
         
-        cout <<"Some game. \n1.Display Data";
-        cout << "\n2. Fight";
-        cout << "\n3. Exit";
-        cin >> choice;
-        return 0;
+//         cout <<"Some game. \n1.Display Data";
+//         cout << "\n2. Fight";
+//         cout << "\n3. Exit";
+//         cin >> choice;
+//         return 0;
 
-        switch(choice){
-            case 1: 
-                {
-                cout << "Displaying Data:";
-                    displayData(grunt);
-                    cout << "\n";
-                    displayData(knight);
-                    cout << "\n";
-                    displayData(player);
+//         switch(choice){
+//             case 1: 
+//                 {
+//                 cout << "Displaying Data:";
+//                     displayData(grunt);
+//                     cout << "\n";
+//                     displayData(knight);
+//                     cout << "\n";
+//                     displayData(player);
 
-                    Character.displayChars();
+//                     Character.displayChars();
 
                 
-                break;
-                }
+//                 break;
+//                 }
 
-            case 2:{
-                cout << "Ok";
-                break;
-                }
+//             case 2:{
+//                 cout << "Ok";
+//                 break;
+//                 }
 
-            case 3:{
-                cout << "Ok, quitting.";
-                game_loop = false;
-                }
-            default:
-            cout << "Invalid";
-            break;
-        }
-    }
-}
+//             case 3:{
+//                 cout << "Ok, quitting.";
+//                 game_loop = false;
+//                 }
+//             default:
+//             cout << "Invalid";
+//             break;
+//         }
+//     }
+// }
 
 
 
