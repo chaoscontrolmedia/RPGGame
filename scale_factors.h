@@ -1,3 +1,7 @@
+#ifndef SCALE_FACTORS_H 
+#define SCALE_FACTORS_H
+
+
 #include <iostream>
 #include <vector>
 
@@ -163,6 +167,8 @@ vector<double> consecutive_attacks_cubic_decay(int amount) {
     return attacks;
 }
 
+};
+#endif
 
 
 
@@ -188,7 +194,7 @@ vector<double> consecutive_attacks_cubic_decay(int amount) {
 //      auto cubed = consecutive_attacks_cubed(amount); cout << "\n";
 
 
-};
+
 
 
 

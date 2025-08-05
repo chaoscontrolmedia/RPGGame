@@ -56,7 +56,28 @@ class Character{
         int getDefense() const { return defense; }
         int getHeals() const { return heals; }
 
+        
+
+       
+
         void displayStats() const;
+
+        void performAttack(Character&attacker, Character&defender){
+            defender.setHealth(defender.getHealth()-attacker.getAttack());
+        }
+
+        void attack(int& health, int damage){
+            health -= damage;
+        }
+
+        void heal(int& health, int heal_amount){
+            health += heal_amount;
+        }
+
+        void defend(int&health, int damage){
+            health-=(damage*.5);
+        }
+
 
 
 

@@ -1,7 +1,7 @@
 
 #include <iostream>
 #include <vector>
-#include "scale_factors.cpp"
+#include "scale_factors.h"
 
 using namespace std;
 
