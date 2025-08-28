@@ -1,5 +1,3 @@
-
-
 #ifndef PARTY_H
 #define PARTY_H
 
@@ -8,25 +6,39 @@
 #include <vector>
 
 
+using std::vector;
+
+
 
 class Party{
     private:
-        std::vector<Character> characters;
+        vector<Character> characters;
 
     public:
-        void addCharacter(const Character& character);
-        std::vector<std::string> getCharacterNames() const;
-        // Get list of character names
-        // Display all characters
-        void displayParty() const;
+    void addToParty(const Character&individual_character);
+    void addChar();
+    void displayParty() const;
+    vector<string> displayChars() const;
+        
+        
+// Get list of character names
+        
+        // 
+        // // Display all characters
+        // int getSize() const;
+        // void displayParty() const;
 
-        // (Optional) access character by index
-        Character& getCharacterAt(int index);
-        int getSize() const;
+        // 
+        // vector<string> getCharacterNames() const;
 
-        std::vector<std::string> displayChars();
-        void addToParty(const Character&individual_character);
-        void createCharacter2();
+
+        // // (Optional) access character by index
+        // Character& getCharacterAt(int index);
+        // Character&Party::getCharacterAt(int index);
+        // const Character& Party::getCharacterAtAlt(int index) const;
+
+        
+        // 
 
 
 };
